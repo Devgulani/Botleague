@@ -4,8 +4,16 @@ import { ShieldCheck, Gavel, Briefcase, Zap, Trophy, User } from "lucide-react";
 const rows = [
   { icon: ShieldCheck, title: "NATIONAL RECOGNITION", desc: "" },
   { icon: Gavel, title: "FAIR JUDGING", desc: "" },
-  { icon: Briefcase, title: "CAREER OPS", desc: "“Bridge the gap between arena victories and top-tier tech placements.”" },
-  { icon: Zap, title: "HIGH - ENERGY ECO", desc: "“Join a nationwide community of elite innovators and robotics athletes.”" },
+  {
+    icon: Briefcase,
+    title: "CAREER OPS",
+    desc: "“Bridge the gap between arena victories and top-tier tech placements.”",
+  },
+  {
+    icon: Zap,
+    title: "HIGH - ENERGY ECO",
+    desc: "“Join a nationwide community of elite innovators and robotics athletes.”",
+  },
 ];
 
 const board = [
@@ -22,7 +30,9 @@ export function AdvantageSection() {
   return (
     <section id="rankings" className="py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="text-xs font-bold uppercase tracking-[0.3em] text-accent">Why Register ?</div>
+        <div className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
+          Why Register ?
+        </div>
         <h2 className="mt-2 font-display text-2xl font-bold tracking-tight md:text-3xl">
           THE LEAGUE ADVANTAGE
         </h2>
@@ -67,7 +77,9 @@ export function AdvantageSection() {
                   <Trophy className="h-5 w-5" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="text-[10px] uppercase tracking-wider text-gold">#01 · Player Name</div>
+                  <div className="text-[10px] uppercase tracking-wider text-gold">
+                    #01 · Player Name
+                  </div>
                   <div className="font-display text-2xl font-bold tabular-nums">508754</div>
                 </div>
               </div>

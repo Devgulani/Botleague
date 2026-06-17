@@ -17,7 +17,7 @@ export function JourneySection() {
           YOUR PATH TO THE LEAGUE
         </h2>
         <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground">
-          Lorem Ipsum Lorem Ipsum Lorem Ipsum
+          From your first build to the national stage — your journey starts here.
         </p>
 
         <div className="relative mt-14">
@@ -35,7 +35,9 @@ export function JourneySection() {
                 <div className="relative grid h-16 w-16 place-items-center rounded-full border-2 border-accent bg-surface-2 shadow-[0_0_24px_rgba(255,45,45,0.35)]">
                   <s.icon className="h-6 w-6 text-foreground" strokeWidth={1.8} />
                 </div>
-                <div className="mt-4 text-xs font-bold tracking-[0.2em] text-accent">STEP {i + 1}</div>
+                <div className="mt-4 text-xs font-bold tracking-[0.2em] text-accent">
+                  STEP {i + 1}
+                </div>
                 <div className="mt-1 whitespace-pre-line text-xs font-semibold leading-tight">
                   {s.label}
                 </div>

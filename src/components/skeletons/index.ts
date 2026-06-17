@@ -1,0 +1,13 @@
+export { HomeSkeleton } from "./HomeSkeleton";
+export { EventsSkeleton } from "./EventsSkeleton";
+export { CategoriesSkeleton } from "./CategoriesSkeleton";
+export { DisciplinesSkeleton } from "./DisciplinesSkeleton";
+export { LeaderboardSkeleton } from "./LeaderboardSkeleton";
+export { SponsorsSkeleton } from "./SponsorsSkeleton";
+export { LoginSkeleton } from "./LoginSkeleton";
+export { SignupSkeleton } from "./SignupSkeleton";
+export { ContactSkeleton } from "./ContactSkeleton";
+export { EcosystemSkeleton } from "./EcosystemSkeleton";
+export { AboutSkeleton } from "./AboutSkeleton";
+export { ForgotPasswordSkeleton } from "./ForgotPasswordSkeleton";
+export { CategoriesDetailSkeleton } from "./CategoriesDetailSkeleton";

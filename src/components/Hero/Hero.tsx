@@ -1,18 +1,22 @@
 import { motion } from "motion/react";
+import { useNavigate } from "@tanstack/react-router";
 import { Play } from "lucide-react";
 import heroArena from "@/assets/hero-arena.jpg";
+import { ProgressiveImage } from "@/components/ui/skeletons/ProgressiveImage";
 
 export function Hero() {
+  const navigate = useNavigate();
   return (
     <section id="top" className="relative overflow-hidden pt-24">
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
         <div className="relative overflow-hidden rounded-2xl border border-hairline">
-          <img
+          <ProgressiveImage
             src={heroArena}
             alt="Two robots clashing in the arena"
             width={1536}
             height={896}
-            className="h-[420px] w-full object-cover sm:h-[480px] md:h-[560px]"
+            containerClassName="h-[420px] w-full sm:h-[480px] md:h-[560px]"
+            className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/10" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
@@ -32,7 +36,7 @@ export function Hero() {
               <span className="font-bold text-accent">LIVE</span>
             </span>
             <span className="text-muted-foreground">: Episode 14 · Bengaluru Regionals</span>
-            <span className="ml-1 flex items-center gap-1 font-semibold text-foreground">
+            <span className="ml-1 flex items-center gap-1 font-semibold text-foreground cursor-pointer hover:text-accent">
               <Play className="h-3 w-3 fill-current" /> WATCH LIVE
             </span>
           </motion.div>
@@ -57,6 +61,7 @@ export function Hero() {
                 <motion.button
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
+                  onClick={() => navigate({ to: "/signup" })}
                   className="rounded-md bg-accent px-5 py-2.5 text-xs font-bold tracking-wide text-accent-foreground glow-red-sm transition hover:brightness-110"
                 >
                   CREATE ACCOUNT
@@ -64,6 +69,7 @@ export function Hero() {
                 <motion.button
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
+                  onClick={() => navigate({ to: "/events" })}
                   className="rounded-md border border-foreground/30 bg-background/40 px-5 py-2.5 text-xs font-bold tracking-wide text-foreground backdrop-blur transition hover:border-foreground/60"
                 >
                   EXPLORE EVENTS

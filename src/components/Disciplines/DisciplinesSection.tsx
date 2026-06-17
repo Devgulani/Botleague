@@ -5,6 +5,7 @@ import rcracing from "@/assets/disc-rcracing.jpg";
 import drone from "@/assets/disc-drone.jpg";
 import hockey from "@/assets/disc-hockey.jpg";
 import robowar from "@/assets/disc-robowar.jpg";
+import { ProgressiveImage } from "@/components/ui/skeletons/ProgressiveImage";
 
 const tiles = [
   { title: "Robo Race", img: roborace },
@@ -35,12 +36,12 @@ export function DisciplinesSection() {
               className="group relative overflow-hidden rounded-xl border border-hairline bg-surface-1"
             >
               <div className="aspect-[4/3] overflow-hidden">
-                <img
+                <ProgressiveImage
                   src={t.img}
                   alt={t.title}
-                  loading="lazy"
                   width={768}
                   height={576}
+                  containerClassName="h-full w-full"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>

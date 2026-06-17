@@ -42,11 +42,16 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 lg:px-8">
-        <Link to="/" className="flex shrink-0 items-center gap-2 font-display text-lg font-bold tracking-tight">
+        <Link
+          to="/"
+          className="flex shrink-0 items-center gap-2 font-display text-lg font-bold tracking-tight"
+        >
           <span className="grid h-7 w-7 place-items-center rounded-md bg-accent text-accent-foreground">
             <Bot className="h-4 w-4" strokeWidth={2.5} />
           </span>
-          <span>BOT<span className="text-accent">LEAGUE</span></span>
+          <span>
+            BOT<span className="text-accent">LEAGUE</span>
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
@@ -72,7 +77,10 @@ export function Navbar() {
         <div className="hidden items-center gap-3 lg:flex">
           {!session && (
             <>
-              <Link to="/login" className="rounded-md border border-border px-4 py-1.5 text-xs font-semibold tracking-wide hover:border-foreground/40">
+              <Link
+                to="/login"
+                className="rounded-md border border-border px-4 py-1.5 text-xs font-semibold tracking-wide hover:border-foreground/40"
+              >
                 LOGIN
               </Link>
               <Link
@@ -92,7 +100,9 @@ export function Navbar() {
                 <span className="grid h-7 w-7 place-items-center rounded-full bg-accent/20 text-accent">
                   <User className="h-4 w-4" />
                 </span>
-                <span className="text-xs font-semibold">{session.kind === "guest" ? "Guest User" : session.name}</span>
+                <span className="text-xs font-semibold">
+                  {session.kind === "guest" ? "Guest User" : session.name}
+                </span>
               </button>
               <AnimatePresence>
                 {menu && (
@@ -102,8 +112,22 @@ export function Navbar() {
                     exit={{ opacity: 0, y: -8 }}
                     className="absolute right-0 mt-2 w-48 overflow-hidden rounded-lg border border-hairline bg-surface-1 shadow-xl"
                   >
-                    <MenuItem icon={User} label="Profile" />
-                    <MenuItem icon={LayoutDashboard} label="Dashboard" />
+                    <MenuItem
+                      icon={User}
+                      label="Profile"
+                      onClick={() => {
+                        setMenu(false);
+                        navigate({ to: "/" });
+                      }}
+                    />
+                    <MenuItem
+                      icon={LayoutDashboard}
+                      label="Dashboard"
+                      onClick={() => {
+                        setMenu(false);
+                        navigate({ to: "/" });
+                      }}
+                    />
                     <button
                       onClick={onLogout}
                       className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm hover:bg-surface-2"
@@ -143,11 +167,26 @@ export function Navbar() {
               <div className="mt-3 flex gap-2">
                 {!session ? (
                   <>
-                    <Link to="/login" onClick={() => setOpen(false)} className="flex-1 rounded-md border border-border py-2 text-center text-xs font-semibold">LOGIN</Link>
-                    <Link to="/signup" onClick={() => setOpen(false)} className="flex-1 rounded-md bg-accent py-2 text-center text-xs font-bold text-accent-foreground">SIGN UP</Link>
+                    <Link
+                      to="/login"
+                      onClick={() => setOpen(false)}
+                      className="flex-1 rounded-md border border-border py-2 text-center text-xs font-semibold"
+                    >
+                      LOGIN
+                    </Link>
+                    <Link
+                      to="/signup"
+                      onClick={() => setOpen(false)}
+                      className="flex-1 rounded-md bg-accent py-2 text-center text-xs font-bold text-accent-foreground"
+                    >
+                      SIGN UP
+                    </Link>
                   </>
                 ) : (
-                  <button onClick={onLogout} className="flex-1 rounded-md border border-border py-2 text-xs font-semibold">
+                  <button
+                    onClick={onLogout}
+                    className="flex-1 rounded-md border border-border py-2 text-xs font-semibold"
+                  >
                     LOGOUT ({session.kind === "guest" ? "Guest" : session.name})
                   </button>
                 )}
@@ -160,9 +199,20 @@ export function Navbar() {
   );
 }
 
-function MenuItem({ icon: Icon, label }: { icon: typeof User; label: string }) {
+function MenuItem({
+  icon: Icon,
+  label,
+  onClick,
+}: {
+  icon: typeof User;
+  label: string;
+  onClick?: () => void;
+}) {
   return (
-    <button className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm hover:bg-surface-2">
+    <button
+      onClick={onClick}
+      className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm hover:bg-surface-2"
+    >
       <Icon className="h-4 w-4 text-muted-foreground" /> {label}
     </button>
   );

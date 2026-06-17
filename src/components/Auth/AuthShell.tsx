@@ -3,7 +3,12 @@ import { motion } from "motion/react";
 import { Link } from "@tanstack/react-router";
 import { Bot } from "lucide-react";
 
-export function AuthShell({ title, subtitle, children, footer }: {
+export function AuthShell({
+  title,
+  subtitle,
+  children,
+  footer,
+}: {
   title: string;
   subtitle?: string;
   children: ReactNode;
@@ -28,7 +33,9 @@ export function AuthShell({ title, subtitle, children, footer }: {
           <span className="grid h-7 w-7 place-items-center rounded-md bg-accent text-accent-foreground">
             <Bot className="h-4 w-4" strokeWidth={2.5} />
           </span>
-          <span>BOT<span className="text-accent">LEAGUE</span></span>
+          <span>
+            BOT<span className="text-accent">LEAGUE</span>
+          </span>
         </Link>
 
         <motion.div

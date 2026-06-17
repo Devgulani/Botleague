@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Link } from "@tanstack/react-router";
 import { Boxes, Lightbulb, UserCog, Bitcoin, ArrowRight } from "lucide-react";
 
 const cats = [
@@ -28,11 +29,16 @@ export function CategoriesSection() {
               }`}
             >
               <c.icon className="h-9 w-9 text-gold" strokeWidth={1.5} />
-              <h3 className="mt-8 whitespace-pre-line font-display text-lg font-bold leading-tight">{c.title}</h3>
+              <h3 className="mt-8 whitespace-pre-line font-display text-lg font-bold leading-tight">
+                {c.title}
+              </h3>
               <p className="mt-2 text-xs text-muted-foreground">{c.desc}</p>
-              <a href="#" className="mt-6 inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-gold">
+              <Link
+                to="/categories"
+                className="mt-6 inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-gold hover:underline"
+              >
                 Learn more <ArrowRight className="h-3 w-3" />
-              </a>
+              </Link>
             </motion.div>
           ))}
         </div>

@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useLocation,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -23,16 +24,29 @@ function NotFoundComponent() {
           404
         </div>
         <div className="mx-auto mt-2 grid h-16 w-16 place-items-center rounded-2xl border border-accent/40 bg-surface-1 glow-red-sm">
-          <svg viewBox="0 0 24 24" className="h-8 w-8 text-accent" fill="none" stroke="currentColor" strokeWidth="1.6">
-            <rect x="5" y="8" width="14" height="10" rx="2" /><circle cx="9" cy="13" r="1" /><circle cx="15" cy="13" r="1" />
+          <svg
+            viewBox="0 0 24 24"
+            className="h-8 w-8 text-accent"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.6"
+          >
+            <rect x="5" y="8" width="14" height="10" rx="2" />
+            <circle cx="9" cy="13" r="1" />
+            <circle cx="15" cy="13" r="1" />
             <path d="M12 4v4M8 18v2M16 18v2" />
           </svg>
         </div>
-        <h2 className="mt-5 font-display text-2xl font-bold tracking-tight">Signal lost. Page not found.</h2>
+        <h2 className="mt-5 font-display text-2xl font-bold tracking-tight">
+          Signal lost. Page not found.
+        </h2>
         <p className="mx-auto mt-2 max-w-sm text-sm text-muted-foreground">
           This corridor of the arena doesn't exist. Let's get you back to the action.
         </p>
-        <Link to="/" className="mt-7 inline-flex items-center justify-center rounded-md bg-accent px-5 py-2.5 text-xs font-bold tracking-wider text-accent-foreground glow-red-sm transition hover:brightness-110">
+        <Link
+          to="/"
+          className="mt-7 inline-flex items-center justify-center rounded-md bg-accent px-5 py-2.5 text-xs font-bold tracking-wider text-accent-foreground glow-red-sm transition hover:brightness-110"
+        >
           BACK TO HOME
         </Link>
       </div>
@@ -84,9 +98,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "BotLeague — India's Ultimate Robotics Arena" },
-      { name: "description", content: "Build. Compete. Rank. The national ecosystem for robotics arena competitions." },
+      {
+        name: "description",
+        content: "Build. Compete. Rank. The national ecosystem for robotics arena competitions.",
+      },
       { property: "og:title", content: "BotLeague — India's Ultimate Robotics Arena" },
-      { property: "og:description", content: "Build. Compete. Rank. The national ecosystem for robotics arena competitions." },
+      {
+        property: "og:description",
+        content: "Build. Compete. Rank. The national ecosystem for robotics arena competitions.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -122,10 +142,14 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [location.pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );

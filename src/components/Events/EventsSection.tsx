@@ -17,7 +17,9 @@ export function EventsSection() {
             <div className="mt-4 flex items-start justify-between">
               <div>
                 <div className="font-semibold">Bengaluru Regionals</div>
-                <div className="text-xs text-muted-foreground">Lorem Ipsum</div>
+                <div className="text-xs text-muted-foreground">
+                  Top 16 teams battling for the regional title
+                </div>
               </div>
               <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
                 Ongoing
@@ -41,7 +43,9 @@ export function EventsSection() {
               {past.map((p, i) => (
                 <div key={i} className="rounded-lg border border-hairline bg-surface-2/60 p-3.5">
                   <div className="text-sm font-semibold">{p}</div>
-                  <div className="text-xs text-muted-foreground">Lorem Ipsum</div>
+                  <div className="text-xs text-muted-foreground">
+                    Champions crowned at the national arena
+                  </div>
                 </div>
               ))}
             </div>
@@ -68,7 +72,9 @@ function Panel({ children }: { children: React.ReactNode }) {
 
 function Pill({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={`text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground ${className}`}>
+    <div
+      className={`text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground ${className}`}
+    >
       {children}
     </div>
   );
@@ -83,7 +89,10 @@ function EventCard({ city }: { city: string }) {
         <Field label="Location" value="BKC" />
         <Field label="Category" value="Lorem" />
       </div>
-      <button className="mt-3 w-full rounded-md bg-accent py-2 text-xs font-bold tracking-wider text-accent-foreground transition hover:brightness-110">
+      <button
+        onClick={() => {}}
+        className="mt-3 w-full rounded-md bg-accent py-2 text-xs font-bold tracking-wider text-accent-foreground transition hover:brightness-110"
+      >
         REGISTER
       </button>
     </div>
@@ -103,15 +112,48 @@ function Bracket() {
   return (
     <svg viewBox="0 0 280 160" className="mt-5 w-full" aria-hidden>
       {[20, 60, 100, 140].map((y) => (
-        <rect key={`l${y}`} x="4" y={y} width="60" height="14" rx="2" className="fill-surface-2 stroke-hairline" />
+        <rect
+          key={`l${y}`}
+          x="4"
+          y={y}
+          width="60"
+          height="14"
+          rx="2"
+          className="fill-surface-2 stroke-hairline"
+        />
       ))}
       {[40, 120].map((y) => (
-        <rect key={`m${y}`} x="110" y={y} width="60" height="14" rx="2" className="fill-surface-2 stroke-hairline" />
+        <rect
+          key={`m${y}`}
+          x="110"
+          y={y}
+          width="60"
+          height="14"
+          rx="2"
+          className="fill-surface-2 stroke-hairline"
+        />
       ))}
-      <rect x="216" y="80" width="60" height="14" rx="2" className="fill-surface-2 stroke-hairline" />
+      <rect
+        x="216"
+        y="80"
+        width="60"
+        height="14"
+        rx="2"
+        className="fill-surface-2 stroke-hairline"
+      />
       {/* connectors */}
-      <path d="M64 27 H88 V47 H110 M64 67 H88 V47 M64 107 H88 V127 H110 M64 147 H88 V127" className="stroke-hairline" fill="none" strokeWidth="1" />
-      <path d="M170 47 H194 V87 H216 M170 127 H194 V87" className="stroke-hairline" fill="none" strokeWidth="1" />
+      <path
+        d="M64 27 H88 V47 H110 M64 67 H88 V47 M64 107 H88 V127 H110 M64 147 H88 V127"
+        className="stroke-hairline"
+        fill="none"
+        strokeWidth="1"
+      />
+      <path
+        d="M170 47 H194 V87 H216 M170 127 H194 V87"
+        className="stroke-hairline"
+        fill="none"
+        strokeWidth="1"
+      />
     </svg>
   );
 }

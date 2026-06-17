@@ -2,10 +2,26 @@ import { motion } from "motion/react";
 import { Cog, Cpu, Briefcase, Settings2 } from "lucide-react";
 
 const items = [
-  { n: "1.", title: "STRUCTURED EVENTS", desc: "From one-off events to a year-round competitive season." },
-  { n: "2.", title: "DIGITAL IDENTITY", desc: "Your professional robotics legacy, tracked and verified." },
-  { n: "3.", title: "NATIONAL RANKING", desc: "Benchmark your skills against the best engineers in India." },
-  { n: "4.", title: "CAREER PATHWAY", desc: "Turning arena victories into real-world industry opportunities." },
+  {
+    n: "1.",
+    title: "STRUCTURED EVENTS",
+    desc: "From one-off events to a year-round competitive season.",
+  },
+  {
+    n: "2.",
+    title: "DIGITAL IDENTITY",
+    desc: "Your professional robotics legacy, tracked and verified.",
+  },
+  {
+    n: "3.",
+    title: "NATIONAL RANKING",
+    desc: "Benchmark your skills against the best engineers in India.",
+  },
+  {
+    n: "4.",
+    title: "CAREER PATHWAY",
+    desc: "Turning arena victories into real-world industry opportunities.",
+  },
 ];
 
 export function WhatIsBotLeague() {
@@ -27,7 +43,9 @@ export function WhatIsBotLeague() {
                 transition={{ delay: i * 0.06 }}
               >
                 <div className="font-display text-xl font-bold text-accent">{it.n}</div>
-                <div className="mt-1 font-display text-base font-bold tracking-wide">{it.title}</div>
+                <div className="mt-1 font-display text-base font-bold tracking-wide">
+                  {it.title}
+                </div>
                 <p className="mt-2 text-sm text-muted-foreground">&quot;{it.desc}&quot;</p>
               </motion.div>
             ))}

@@ -1,6 +1,26 @@
 import { motion } from "motion/react";
+import { Link } from "@tanstack/react-router";
 
-const cards = ["Become In Judge", "Volunteer", "Community Member"];
+const cards = [
+  {
+    title: "Become a Judge",
+    desc: "Evaluate the next generation of robotics talent.",
+    cta: "Apply Now",
+    to: "/contact",
+  },
+  {
+    title: "Volunteer",
+    desc: "Help us run India's biggest robotics league.",
+    cta: "Sign Up",
+    to: "/contact",
+  },
+  {
+    title: "Community Member",
+    desc: "Join a network of 12K+ robotics builders.",
+    cta: "Join Free",
+    to: "/signup",
+  },
+];
 
 export function EcosystemSection() {
   return (
@@ -12,34 +32,26 @@ export function EcosystemSection() {
 
         <div className="mt-8 grid gap-5 md:grid-cols-3">
           {cards.map((c, i) => (
-            <motion.form
-              key={c}
+            <motion.div
+              key={c.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              whileHover={{ y: -4 }}
               transition={{ delay: i * 0.06 }}
-              onSubmit={(e) => e.preventDefault()}
-              className="rounded-2xl border border-hairline bg-surface-1 p-5"
+              className="rounded-2xl border border-hairline bg-surface-1 p-5 transition hover:border-accent/40"
             >
               <div className="text-center text-xs font-bold uppercase tracking-[0.25em] text-foreground">
-                {c}
+                {c.title}
               </div>
-              <div className="mt-5 space-y-3">
-                {["Name", "Location", "Enroll"].map((p) => (
-                  <input
-                    key={p}
-                    placeholder={p}
-                    className="w-full rounded-md border border-hairline bg-surface-2 px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/70 focus:border-accent/60 focus:outline-none"
-                  />
-                ))}
-                <button
-                  type="submit"
-                  className="w-full rounded-md bg-accent py-2.5 text-sm font-bold tracking-wider text-accent-foreground transition hover:brightness-110"
-                >
-                  SIGN UP
-                </button>
-              </div>
-            </motion.form>
+              <p className="mt-3 text-center text-sm text-muted-foreground">{c.desc}</p>
+              <Link
+                to={c.to}
+                className="mt-5 block w-full rounded-md bg-accent py-2.5 text-center text-sm font-bold tracking-wider text-accent-foreground transition hover:brightness-110"
+              >
+                {c.cta}
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>

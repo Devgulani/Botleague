@@ -80,7 +80,9 @@ export function Section({ children, className = "" }: { children: ReactNode; cla
 export function SectionTitle({ eyebrow, title }: { eyebrow?: string; title: string }) {
   return (
     <div className="mb-10">
-      {eyebrow && <div className="text-xs font-bold uppercase tracking-[0.3em] text-accent">{eyebrow}</div>}
+      {eyebrow && (
+        <div className="text-xs font-bold uppercase tracking-[0.3em] text-accent">{eyebrow}</div>
+      )}
       <h2 className="mt-2 font-display text-2xl font-bold tracking-tight md:text-3xl">{title}</h2>
     </div>
   );
